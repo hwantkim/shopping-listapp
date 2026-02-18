@@ -1,7 +1,7 @@
 // 2026-02-18 14:30:00 Created by Gemini CLI
 // 2026-02-18 14:45:00 Updated for Supabase Integration
 
-const SUPABASE_URL = 'https://zxadtuqwgpucyrnktzmt.supabaseClient.co';
+const SUPABASE_URL = 'https://zxadtuqwgpucyrnktzmt.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp4YWR0dXF3Z3B1Y3lybmt0em10Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0MTE4MTIsImV4cCI6MjA4Njk4NzgxMn0.3NcQKw_bn_eMRr7NG9JkdcvXDXM4POlhn61NEJoADF8';
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
