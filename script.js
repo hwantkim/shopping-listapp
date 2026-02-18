@@ -1,10 +1,10 @@
 // 2026-02-18 14:30:00 Created by Gemini CLI
 // 2026-02-18 14:45:00 Updated for Supabase Integration
 
-const SUPABASE_URL = 'https://zxadtuqwgpucyrnktzmt.supabase.co';
+const SUPABASE_URL = 'https://zxadtuqwgpucyrnktzmt.supabaseClient.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp4YWR0dXF3Z3B1Y3lybmt0em10Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0MTE4MTIsImV4cCI6MjA4Njk4NzgxMn0.3NcQKw_bn_eMRr7NG9JkdcvXDXM4POlhn61NEJoADF8';
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 document.addEventListener('DOMContentLoaded', () => {
     const itemInput = document.getElementById('itemInput');
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 데이터 가져오기 (Supabase)
     async function fetchItems() {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('shopping_items')
             .select('*')
             .order('created_at', { ascending: true });
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = itemInput.value.trim();
         if (text === '') return;
 
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('shopping_items')
             .insert([{ text: text, completed: false }])
             .select();
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 아이템 삭제 기능 (Supabase)
     async function deleteItem(id) {
-        const { error } = await supabase
+        const { error } = await supabaseClient
             .from('shopping_items')
             .delete()
             .eq('id', id);
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 아이템 체크 토글 기능 (Supabase)
     async function toggleComplete(id, currentStatus) {
-        const { error } = await supabase
+        const { error } = await supabaseClient
             .from('shopping_items')
             .update({ completed: !currentStatus })
             .eq('id', id);
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (!confirm('정말로 모든 항목을 삭제하시겠습니까?')) return;
 
-        const { error } = await supabase
+        const { error } = await supabaseClient
             .from('shopping_items')
             .delete()
             .gt('id', 0); 
