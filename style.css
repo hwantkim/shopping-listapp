@@ -1,0 +1,133 @@
+/* 2026-02-18 14:30:00 Created by Gemini CLI */
+:root {
+    --primary-color: #6c5ce7;
+    --bg-color: #f0f3f8;
+    --item-bg: #ffffff;
+    --text-color: #2d3436;
+    --done-color: #b2bec3;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+}
+
+button#addBtn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+button#addBtn:hover {
+    background-color: #5b4cc4;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: var(--item-bg);
+    border-bottom: 1px solid #f1f2f6;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #fafafa;
+}
+
+li.completed span {
+    text-decoration: line-through;
+    color: var(--done-color);
+}
+
+li span {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #ff7675;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+}
+
+.controls {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.clear-btn {
+    background: none;
+    border: none;
+    color: var(--done-color);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.clear-btn:hover {
+    color: #ff7675;
+    text-decoration: underline;
+}
